@@ -25,7 +25,7 @@ router.get('/userlist', function(req, res) {
 
 // get new user from the database
 router.get('/newuser', function(req,res){
-	res.render('newuser.jade', {title: 'Welcome new user'})
+	res.render('newuser', {title: 'Welcome new user'})
 })
 
 /* POST to Add User Service */
