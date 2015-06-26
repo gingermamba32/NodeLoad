@@ -1,11 +1,21 @@
 var express = require('express');
 var router = express.Router();
 
+// Database connection
+var mongoose = require('mongoose');
+var db = mongoose.connect('mongodb://localhost/Upnode');
+
+// Database schema
+var Usercollection = db.model('usercollections', { 	
+	username: String, 
+	email: String 
+});
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index.jade', {title: 'hello'})
-  console.log('Welcome');
+  console.log('Welcome!!!!!');
 });
 
 router.get('/helloworld', function(req,res,next){
