@@ -3,10 +3,12 @@ var router = express.Router();
 
 // Database connection
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/Upnode');
+//mongoose.connect('mongodb://localhost/Upnode');
+// mongolabs connection
+// var db = mongoose.connect( 'mongodb://leigh1:leigh1@ds061751.mongolab.com:61751/upnode2015' );
 
 // Database schema
-var Usercollection = db.model('usercollections', { 	
+var User = db.model('user', { 	
 	username: String, 
 	email: String 
 });
@@ -24,13 +26,12 @@ router.get('/helloworld', function(req,res,next){
 
 /* GET Userlist page. */
 router.get('/userlist', function(req, res) {
-    var db = req.db;
-    var collection = db.get('usercollection');
-    collection.find({},function(err, docs){
-        res.render('userlist.jade', {
-            "userlist" : docs
-        });
-    });
+    User.find({}, function(err, docs){
+    	console.log(docs);
+    	res.render('userlist', {
+    		'userlist': docs
+    	})
+    })
 });
 
 // get new user from the database
@@ -40,31 +41,15 @@ router.get('/newuser', function(req,res){
 
 /* POST to Add User Service */
 router.post('/adduser', function(req, res) {
-
-    // Set our internal DB variable
-    var db = req.db;
-
-    // Get our form values. These rely on the "name" attributes
-    var userName = req.body.username;
-    var userEmail = req.body.useremail;
-
-    // Set our collection
-    var collection = db.get('usercollection');
-
-    // Submit to the DB
-    collection.insert({
-        "username" : userName,
-        "email" : userEmail
-    }, function (err, doc) {
-        if (err) {
-            // If it failed, return error
-            res.send("There was a problem adding the information to the database.");
-        }
-        else {
-            // And forward to success page
-            res.redirect("userlist");
-        }
-    });
+	var newuser = new User({
+		username: req.body.username,
+		email: req.body.email
+	});
+	console.log(newuser);
+	newuser.save(function(err, callback){
+		res.redirect('userlist');
+	})
+    
 });
 
 
