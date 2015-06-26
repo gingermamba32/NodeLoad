@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost/Upnode');
 // mongolabs connection
 // var db = mongoose.connect( 'mongodb://leigh1:leigh1@ds061751.mongolab.com:61751/upnode2015' );
-//var uristring;
+
 
 try{
 	var uristring = require('./mongolabinfo.js').name;
