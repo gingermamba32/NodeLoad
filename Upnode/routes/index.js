@@ -21,13 +21,6 @@ console.log("uristring is "+ uristring);
 var db = mongoose.connect( uristring ); 
 
 
-
-
-
-
-
-
-
 // Database schema
 var User = db.model('user', { 	
 	username: String, 
@@ -35,7 +28,7 @@ var User = db.model('user', {
 });
 
 
-/* GET home page. */
+/* GET Splash page to describe UCLA */
 router.get('/', function(req, res, next) {
   res.render('index.jade', {title: 'hello'})
   console.log('Welcome!!!!!');
@@ -44,6 +37,12 @@ router.get('/', function(req, res, next) {
 router.get('/helloworld', function(req,res,next){
 	res.render('helloworld.jade', {title: 'World'})
 })
+
+
+// Get the Proposals page with a get to the database and the proposals listed below
+// including the form at the top to submit to the top of the page...and redirect you to a thank you page.
+
+
 
 /* GET Userlist page. */
 router.get('/userlist', function(req, res) {
