@@ -34,10 +34,6 @@ router.get('/', function(req, res, next) {
   console.log('Welcome!!!!!');
 });
 
-router.get('/helloworld', function(req,res,next){
-	res.render('helloworld.jade', {title: 'World'})
-})
-
 
 // Get the Proposals page with a get to the database and the proposals listed below
 // including the form at the top to submit to the top of the page...and redirect you to a thank you page.
