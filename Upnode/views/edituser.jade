@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	form(name="edituser",method="post",action="/edituser/:id")
+		input(type="text", placeholder="username", name="username", value="#{user[0].username}")
+		input(type="text", placeholder="email", name="email", value="#{user[0].email}")
+		button(type="submit") submit
+
+	p #{user[0].username}

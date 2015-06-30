@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+
 // Database connection
 var mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost/Upnode');
@@ -38,15 +39,11 @@ router.get('/', function(req, res, next) {
 // Get the Proposals page with a get to the database and the proposals listed below
 // including the form at the top to submit to the top of the page...and redirect you to a thank you page.
 
-
-
 /* GET Userlist page. */
 router.get('/userlist', function(req, res) {
     User.find({}, function(err, docs){
-    	console.log(docs);
-    	res.render('userlist', {
-    		'userlist': docs
-    	})
+    	//console.log(docs);
+    	res.render('userlist', {'userlist': docs})
     })
 });
 
@@ -61,11 +58,26 @@ router.post('/adduser', function(req, res) {
 		username: req.body.username,
 		email: req.body.email
 	});
-	console.log(newuser);
+	//console.log(newuser);
 	newuser.save(function(err, callback){
 		res.redirect('userlist');
 	})
     
+});
+
+router.get('/userlist/:id', function(req, res){
+	console.log(req.params.id);
+	User.remove({ _id: req.params.id }, function(){
+		res.redirect('index');
+	});
+});
+
+router.get('/edituser/:id', function(req, res){
+	User.find({_id: req.params.id}, function(err, docs){
+		console.log(docs + ' skljfjdksfds');
+		res.render('edituser', { user: docs } );
+	});
+	
 });
 
 

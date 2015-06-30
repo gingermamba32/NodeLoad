@@ -5,11 +5,17 @@ block content
 		User List
 	ul
 		each user, i in userlist
-			li #{user.username}
+			li #{user.username} #{user.email} 
+				p
+				a(href="/userlist/#{user.id}") Delete
+				p
+				a(href="/edituser/#{user.id}") EDIT
                 
 
 	ul
 		each user, i in userlist
-			li #{user.email}
+			li 
+				p #{user.email}
+					
 
     
