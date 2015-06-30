@@ -8,7 +8,9 @@ block content
 	form(name="adduser",method="post",action="/adduser")
 		p Create new Post
 		input(type="text", placeholder="postname", name="postname")
-		input(type="text", placeholder="postcontent", name="postcontent")
+		p
+		textarea(type="text", placeholder="postcontent", name="postcontent", cols="35", rows="5")
+		p
 		button(type="submit") submit
 
 	ul
