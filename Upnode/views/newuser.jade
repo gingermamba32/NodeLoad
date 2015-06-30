@@ -1,8 +1,17 @@
 extends layout
 
 block content
-    h1= title
-    form#formAddUser(name="adduser",method="post",action="/adduser")
-        input#inputUserName(type="text", placeholder="postname", name="postname")
-        input#inputUserEmail(type="text", placeholder="postcontent", name="postcontent")
-        button#btnSubmit(type="submit") submit
+	.formdiv
+		form(name="adduser",method="post",action="/adduser")
+			h1 New Project Submittal
+			input(type="text", placeholder="Your Name", size="60", name="postname")
+			p
+			input(type="text", placeholder="Your Email", size="60", name="postemail")
+			p
+			input(type="text", placeholder="Your Phone Number", size="60", name="postphone")
+			p
+			input(type="text", placeholder="Organization", size="60", name="postorg")
+			p
+			textarea.form-control(type="text", placeholder="Your Proposal", name="postcontent", rows="8")
+			p
+			button.btn-primary(type="submit") Submit your project

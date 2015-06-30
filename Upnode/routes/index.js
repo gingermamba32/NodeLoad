@@ -24,16 +24,24 @@ var db = mongoose.connect( uristring );
 
 // Database schema
 var Post = db.model('post', { 	
-	postname: String, 
-	postcontent: String 
+	postname: String,
+	postemail: String,
+	postphone: String,
+	postorg:  String,
+	postcontent: String
 });
 
 
 /* GET Splash page to describe UCLA *************************/
 router.get('/', function(req, res, next) {
   res.render('index.jade', {title: 'hello'})
-  console.log('Welcome!!!!!');
 });
+
+// Get the tahnkyou page
+router.get('/thankyou', function(req, res, next) {
+  res.render('thankyou.jade', {title: 'hello'})
+});
+
 
 
 // Get the Proposals page with a get to the database and the proposals listed below
@@ -43,6 +51,7 @@ router.get('/', function(req, res, next) {
 router.get('/userlist', function(req, res) {
     Post.find( {}, function(err, docs){
     	docs.reverse();
+    	console.log(docs);
     	res.render('userlist', {'postlist': docs})
     })
 });
@@ -54,13 +63,18 @@ router.get('/newuser', function(req,res){
 
 /* POST to Add User Service */
 router.post('/adduser', function(req, res) {
+
 	var newpost = new Post({
 		postname: req.body.postname,
+		postemail: req.body.postemail,
+		postphone: req.body.postphone,
+		postorg:  req.body.postorg,
 		postcontent: req.body.postcontent
 	});
-	//console.log(newuser);
+
+	console.log(newpost);
 	newpost.save(function(err, callback){
-		res.redirect('userlist');
+		res.redirect('/thankyou');
 	})
     
 });
