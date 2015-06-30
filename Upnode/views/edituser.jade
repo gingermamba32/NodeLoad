@@ -1,9 +1,10 @@
 extends layout
 
 block content
-	form(name="edituser",method="post",action="/edituser/:id")
-		input(type="text", placeholder="username", name="username", value="#{user[0].username}")
-		input(type="text", placeholder="email", name="email", value="#{user[0].email}")
+	form(name="update",method="post",action="/update")
+		input(type="text", placeholder="id", name="id", size= 40, value="#{post[0]._id}")
+		input(type="text", placeholder="postname", name="postname", value="#{post[0].postname}")
+		input(type="text", placeholder="postcontent", name="postcontent", value="#{post[0].postcontent}")
 		button(type="submit") submit
 
-	p #{user[0].username}
+	p #{post[0].postname}

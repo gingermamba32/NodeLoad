@@ -1,21 +1,29 @@
 extends layout
 
 block content
-	h1
-		User List
+	h1 Posts 
+
+
+
+	form(name="adduser",method="post",action="/adduser")
+		p Create new Post
+		input(type="text", placeholder="postname", name="postname")
+		input(type="text", placeholder="postcontent", name="postcontent")
+		button(type="submit") submit
+
 	ul
-		each user, i in userlist
-			li #{user.username} #{user.email} 
+		each post, i in postlist
+			li #{post.postname} #{post.postcontent} 
 				p
-				a(href="/userlist/#{user.id}") Delete
+				a(href="/deleteuser/#{post.id}") Delete
 				p
-				a(href="/edituser/#{user.id}") EDIT
+				a(href="/edituser/#{post.id}") EDIT
                 
 
 	ul
-		each user, i in userlist
+		each post, i in postlist
 			li 
-				p #{user.email}
+				p #{post.postcontent}
 					
 
     

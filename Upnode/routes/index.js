@@ -23,13 +23,13 @@ var db = mongoose.connect( uristring );
 
 
 // Database schema
-var User = db.model('user', { 	
-	username: String, 
-	email: String 
+var Post = db.model('post', { 	
+	postname: String, 
+	postcontent: String 
 });
 
 
-/* GET Splash page to describe UCLA */
+/* GET Splash page to describe UCLA *************************/
 router.get('/', function(req, res, next) {
   res.render('index.jade', {title: 'hello'})
   console.log('Welcome!!!!!');
@@ -41,9 +41,9 @@ router.get('/', function(req, res, next) {
 
 /* GET Userlist page. */
 router.get('/userlist', function(req, res) {
-    User.find({}, function(err, docs){
-    	//console.log(docs);
-    	res.render('userlist', {'userlist': docs})
+    Post.find( {}, function(err, docs){
+    	docs.reverse();
+    	res.render('userlist', {'postlist': docs})
     })
 });
 
@@ -54,33 +54,48 @@ router.get('/newuser', function(req,res){
 
 /* POST to Add User Service */
 router.post('/adduser', function(req, res) {
-	var newuser = new User({
-		username: req.body.username,
-		email: req.body.email
+	var newpost = new Post({
+		postname: req.body.postname,
+		postcontent: req.body.postcontent
 	});
 	//console.log(newuser);
-	newuser.save(function(err, callback){
+	newpost.save(function(err, callback){
 		res.redirect('userlist');
 	})
     
 });
 
-router.get('/userlist/:id', function(req, res){
+router.get('/deleteuser/:id', function(req, res){
 	console.log(req.params.id);
-	User.remove({ _id: req.params.id }, function(){
-		res.redirect('index');
+	Post.remove({ _id: req.params.id }, function(){
+		res.redirect('/userlist');
 	});
 });
 
 router.get('/edituser/:id', function(req, res){
-	User.find({_id: req.params.id}, function(err, docs){
+	Post.find({_id: req.params.id}, function(err, docs){
 		console.log(docs + ' skljfjdksfds');
-		res.render('edituser', { user: docs } );
+		res.render('edituser', { post: docs } );
 	});
 	
 });
 
-// router.post for the update functionality
+router.post('/update', function(req, res) {
+		console.log(req.body.id);
+		Post.findOneAndUpdate(
+			{_id: req.body.id},
+            {$set: {
+                	_id     	      : req.body.id,
+                    postname      	  : req.body.postname,
+                    postcontent 	  :	req.body.postcontent 
+            }}, 
+            {upsert: false} , function(err, doc) {
+            	res.redirect('userlist');
+            });
+            
+    });
+
+
 
 
 
