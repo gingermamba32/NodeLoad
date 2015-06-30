@@ -80,6 +80,8 @@ router.get('/edituser/:id', function(req, res){
 	
 });
 
+// router.post for the update functionality
+
 
 
 
