@@ -16,6 +16,7 @@
 body {
   color: #878787;
   margin: 0;
+  padding: 50px;
   font: 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -54,9 +55,9 @@ img {
   border-radius: 10px;
 }
 
-ul,
-ol {
+ul{
   margin: 30px 0;
+  list-style-type: none;
 }
 
 li {
@@ -105,7 +106,22 @@ a:active {
 	padding: 60px;
 }
 
+.menu { 
+}
 
+.menu-btn {
+  border: solid 2px black;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: blue;
+  color: white ;
+}
 
+.mybox {
+    width:500px;
+    padding: 10px;
+    background-color: #666666;
+    margin-bottom: 20px;
+    }
 
 

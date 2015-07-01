@@ -28,7 +28,8 @@ var Post = db.model('post', {
 	postemail: String,
 	postphone: String,
 	postorg:  String,
-	postcontent: String
+	postcontent: String,
+	date: {type: Date}
 });
 
 
@@ -61,15 +62,20 @@ router.get('/newuser', function(req,res){
 	res.render('newuser', {title: 'Welcome new user'})
 })
 
-/* POST to Add User Service */
-router.post('/adduser', function(req, res) {
+router.get('/about', function(req,res){
+	res.render('about');
+})
 
+/* POST to Add User to Mongo */
+router.post('/adduser', function(req, res) {
+	var date = Date.now();
 	var newpost = new Post({
 		postname: req.body.postname,
 		postemail: req.body.postemail,
 		postphone: req.body.postphone,
 		postorg:  req.body.postorg,
-		postcontent: req.body.postcontent
+		postcontent: req.body.postcontent,
+		date: date
 	});
 
 	console.log(newpost);
@@ -91,7 +97,6 @@ router.get('/edituser/:id', function(req, res){
 		console.log(docs + ' skljfjdksfds');
 		res.render('edituser', { post: docs } );
 	});
-	
 });
 
 router.post('/update', function(req, res) {
@@ -105,9 +110,15 @@ router.post('/update', function(req, res) {
             }}, 
             {upsert: false} , function(err, doc) {
             	res.redirect('userlist');
-            });
-            
+            });          
     });
+
+router.get('/singleview/:id', function(req, res){
+	Post.find({_id: req.params.id}, function(err, docs){
+		console.log(docs + ' single view');
+		res.render('singleview', { post: docs } );
+	});
+});
 
 
 

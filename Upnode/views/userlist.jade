@@ -4,8 +4,6 @@ block content
 	.formdiv
 		h1 Posts 
 
-
-
 		form(name="adduser",method="post",action="/adduser")
 			p Create new Post
 			input(type="text", placeholder="postname", name="postname")
@@ -13,21 +11,17 @@ block content
 			textarea.form-control(type="text", placeholder="postcontent", name="postcontent", cols="35", rows="5")
 			p
 			button(type="submit") submit
+
 		ul
 			each post, i in postlist
-				li #{post.postname} #{post.postemail} 
-					p
-					a(href="/deleteuser/#{post.id}") Delete
-					p
-					a(href="/edituser/#{post.id}") EDIT          
-		ul
-			each post, i in postlist
-				li 
+				li.mybox 
 					p #{post.postname}
 					p #{post.postemail}
+					a(href="/singleview/#{post.id}") View
 					p #{post.postphone}
 					p #{post.postorg}
 					p #{post.postcontent}
+					p #{post.date}
 					
 
     

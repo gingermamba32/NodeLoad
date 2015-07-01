@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	body
+		h1 Single View Page
+		.mybox
+			p #{post[0].postname}
+			p #{post[0].postemail}
+			p #{post[0].postphone}
+			p #{post[0].postorg}
+			p #{post[0].postcontent}
+			p #{post[0].date}
+			a(href="/deleteuser/#{post.id}") Delete
+			p
+			a(href="/edituser/#{post.id}") EDIT 
