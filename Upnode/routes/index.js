@@ -95,7 +95,7 @@ router.get('/deleteuser/:id', function(req, res){
 router.get('/edituser/:id', function(req, res){
 	Post.find({_id: req.params.id}, function(err, docs){
 		console.log(docs + ' skljfjdksfds');
-		res.render('edituser', { post: docs } );
+		res.render('edituser.jade', { post: docs } );
 	});
 });
 
@@ -106,6 +106,9 @@ router.post('/update', function(req, res) {
             {$set: {
                 	_id     	      : req.body.id,
                     postname      	  : req.body.postname,
+                    postemail 		  : req.body.postemail,
+                    postphone         : req.body.postphone,
+                    postorg         : req.body.postorg,
                     postcontent 	  :	req.body.postcontent 
             }}, 
             {upsert: false} , function(err, doc) {

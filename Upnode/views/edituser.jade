@@ -2,11 +2,17 @@ extends layout
 
 block content
 	h1 Administrative editting
-	form(name="update",method="post",action="/update")
+	form(name="update", method="post", action="/update")
 		input(type="hidden", placeholder="id", name="id", size= 40, value="#{post[0]._id}")
+		p
 		input(type="text", placeholder="postname", name="postname", value="#{post[0].postname}")
+		p
 		input(type="text", placeholder="Your Email", size="60", name="postemail", value="#{post[0].postemail}")
-		input(type="text", placeholder="Your Phone Number", size="60", name="postphone", value='#{post[0].postphone}')
-		input(type="text", placeholder="Organization", size="60", name="postorg", value='#{post[0].postorg}')
-		textarea.form-control(type="text", placeholder="Your Proposal", name="postcontent", rows="8", value='#{post[0].postcontent}' )
-		button(type="submit") Complete Edit
+		p
+		input(type="text", placeholder="Your Phone Number", size="60", name="postphone", value="#{post[0].postphone}")
+		p
+		input(type="text", placeholder="Organization", size="60", name="postorg", value="#{post[0].postorg}")
+		p
+		textarea.form-control(type="text", name="postcontent", size="90", placeholder="#{post[0].postcontent}" )
+		p
+		button.btn-primary(type="submit") Complete Edit
