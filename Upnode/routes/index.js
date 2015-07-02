@@ -33,8 +33,8 @@ var Post = db.model('post', {
 });
 
 // ADMIN USER
-var hardadminperson = "joe";
-var hardadminpass = "secret";
+var hardadminperson = "admin";
+var hardadminpass = "admin";
 var cookieTime;
 
 
@@ -164,22 +164,23 @@ router.post('/verify', function(req, res){
 
     var username = req.body.username;
     var password = req.body.password;
-    if (verifyuser(username, password))
-        {
+    if (verifyuser(username, password)) {
+
         console.log(username + " " + password + " is user ");
         res.cookie('username', req.body.username);
         res.cookie('password', req.body.password);
         res.cookie('datecookie', Date.now());
-
+        res.redirect('userlist');
+        
         }
-    else
-        {console.log("not a valid login "); res.send('not a valid login')}
+    else {
+        console.log("not a valid login "); res.send('not a valid login')
+    }
 
-	res.redirect('/');
 })
 
 
-
+// used for valid cookie verification
 function verifyuser (username, password){
     if ( (username === hardadminperson) && (password === hardadminpass ) ) 
         {loggedin = true;}
@@ -188,8 +189,9 @@ function verifyuser (username, password){
     return loggedin;
 }
 
+// used for valid login for hours ************************
 function recent (cookieTime){
-	if ( (cookieTime + 20000) >= Date.now() ){
+	if ( (Date.now() - cookieTime ) <= 3600000 ) {
 		return true;
 	}
 }
