@@ -35,12 +35,12 @@ var Post = db.model('post', {
 
 /* GET Splash page to describe UCLA *************************/
 router.get('/', function(req, res, next) {
-  res.render('index.jade', {title: 'hello'})
+  res.render('index.jade');
 });
 
 // Get the tahnkyou page
 router.get('/thankyou', function(req, res, next) {
-  res.render('thankyou.jade', {title: 'hello'})
+  res.render('thankyou.jade');
 });
 
 
@@ -52,14 +52,18 @@ router.get('/thankyou', function(req, res, next) {
 router.get('/userlist', function(req, res) {
     Post.find( {}, function(err, docs){
     	docs.reverse();
-    	console.log(docs);
+    	console.log(docs + "userlist");
     	res.render('userlist', {'postlist': docs})
     })
 });
 
 // get new user from the database
-router.get('/newuser', function(req,res){
+router.get('/newuser', function(req, res){
 	res.render('newuser', {title: 'Welcome new user'})
+})
+
+router.get('/login', function(req, res){
+	res.render('login', {title: 'Login Page'})
 })
 
 router.get('/about', function(req,res){
@@ -94,7 +98,7 @@ router.get('/deleteuser/:id', function(req, res){
 
 router.get('/edituser/:id', function(req, res){
 	Post.find({_id: req.params.id}, function(err, docs){
-		console.log(docs + ' skljfjdksfds');
+		console.log(docs + ' User to edit');
 		res.render('edituser.jade', { post: docs } );
 	});
 });
@@ -108,10 +112,11 @@ router.post('/update', function(req, res) {
                     postname      	  : req.body.postname,
                     postemail 		  : req.body.postemail,
                     postphone         : req.body.postphone,
-                    postorg         : req.body.postorg,
+                    postorg           : req.body.postorg,
                     postcontent 	  :	req.body.postcontent 
             }}, 
-            {upsert: false} , function(err, doc) {
+            {upsert: false} , function(err, docs) {
+            	console.log(docs + "Updated Document");
             	res.redirect('userlist');
             });          
     });
@@ -122,6 +127,15 @@ router.get('/singleview/:id', function(req, res){
 		res.render('singleview', { post: docs } );
 	});
 });
+
+
+router.post('verify', function(req, res){
+	console.log(req.body);
+	
+	res.redirect('/');
+})
+
+
 
 
 

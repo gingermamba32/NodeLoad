@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	.formdiv
+		form(name="login",method="post",action="/verify")
+			h1 Admin Signin
+			input(type="text", placeholder="Admin Username", size="60", name="username" required)
+			p
+			input(type="text", placeholder="Password", size="60", name="password" required)
+			p
+			button.btn-primary(type="submit") Submit your Credentials

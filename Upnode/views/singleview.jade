@@ -10,14 +10,14 @@ block content
 			p #{post[0].postorg}
 			p #{post[0].postcontent}
 			p #{post[0].date}
-			a(href="/deleteuser/#{post[0].id}", onclick="return warning();") Delete
+			a(href="/deleteuser/#{post[0].id}", onclick="return warningView();") Delete
 			p
 			a(href="/edituser/#{post[0].id}") EDIT 
 			p
 			p#confirm
 	
 			script.
-				function warning() {
+				function warningView() {
 				  if(confirm("Please confirm you want to delete this proposal") == true){
 				  return true;
 				  } 
