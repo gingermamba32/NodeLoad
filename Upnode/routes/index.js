@@ -22,7 +22,7 @@ console.log("uristring is "+ uristring);
 var db = mongoose.connect( uristring ); 
 
 
-// Database schema
+// Submit schema
 var Post = db.model('post', { 	
 	postname: String,
 	postemail: String,
@@ -32,6 +32,17 @@ var Post = db.model('post', {
 	date: {type: Date}
 });
 
+// ADMIN USER
+var hardadminperson = "joe";
+var hardadminpass = "secret";
+var cookieTime;
+
+
+// // User schema
+// var User = db.model('user', { 	
+// 	username: String,
+// 	password: String
+// });
 
 /* GET Splash page to describe UCLA *************************/
 router.get('/', function(req, res, next) {
@@ -50,11 +61,29 @@ router.get('/thankyou', function(req, res, next) {
 
 /* GET Userlist page. */
 router.get('/userlist', function(req, res) {
-    Post.find( {}, function(err, docs){
-    	docs.reverse();
-    	console.log(docs + "userlist");
-    	res.render('userlist', {'postlist': docs})
-    })
+    
+    var cookieTime = req.cookies.datecookie;
+    
+
+    console.log(req.cookies.datecookie);
+
+
+
+	if ( recent(cookieTime) ){
+
+
+		    Post.find( {}, function(err, docs) {
+		    	docs.reverse();
+		    	console.log(docs + "userlist");
+		    	res.render('userlist', {'postlist': docs})
+		    })
+	}
+
+	else {
+		console.log('admin blocked');
+		res.redirect('/');
+	}
+
 });
 
 // get new user from the database
@@ -128,12 +157,42 @@ router.get('/singleview/:id', function(req, res){
 	});
 });
 
+// verify if user exists on the loginpage .... need to send cookies back to the client
+router.post('/verify', function(req, res){
+	console.log(req.body.username);
+    console.log(req.body.password);
 
-router.post('verify', function(req, res){
-	console.log(req.body);
-	
+    var username = req.body.username;
+    var password = req.body.password;
+    if (verifyuser(username, password))
+        {
+        console.log(username + " " + password + " is user ");
+        res.cookie('username', req.body.username);
+        res.cookie('password', req.body.password);
+        res.cookie('datecookie', Date.now());
+
+        }
+    else
+        {console.log("not a valid login "); res.send('not a valid login')}
+
 	res.redirect('/');
 })
+
+
+
+function verifyuser (username, password){
+    if ( (username === hardadminperson) && (password === hardadminpass ) ) 
+        {loggedin = true;}
+    else
+    	{loggedin = false;}
+    return loggedin;
+}
+
+function recent (cookieTime){
+	if ( (cookieTime + 20000) >= Date.now() ){
+		return true;
+	}
+}
 
 
 
