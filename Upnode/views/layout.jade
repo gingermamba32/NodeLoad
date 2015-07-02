@@ -4,6 +4,7 @@ html
 		link(rel="stylesheet", href="/stylesheets/style.css")
 		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
 		script(src="//code.jquery.com/jquery-1.11.3.min.js")
+		script(src="/javascripts/jquery.cookie.js")
 		body
 			.menu
 				a.menu-btn(href='/') Home
@@ -15,4 +16,9 @@ html
 				a.menu-btn(href='/userlist') Admin Editing
 				=" "
 				a.menu-btn(href='/login') Login
+				=" "
+				a.menu-btn(href='/logout') Logout
+		script.
+			console.log( $.cookie() );
+
 	block content

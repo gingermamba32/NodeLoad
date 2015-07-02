@@ -171,12 +171,17 @@ router.post('/verify', function(req, res){
         res.cookie('password', req.body.password);
         res.cookie('datecookie', Date.now());
         res.redirect('userlist');
-        
+
         }
     else {
         console.log("not a valid login "); res.send('not a valid login')
     }
 
+})
+
+router.get('/logout', function(req, res){
+	res.clearCookie('datecookie');
+	res.redirect('/');
 })
 
 
