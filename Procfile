@@ -1,1 +1,1 @@
-web: node Upnode/bin/www
+web: node ./bin/www
