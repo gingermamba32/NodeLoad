@@ -1,20 +1,18 @@
 var express = require('express');
 var router = express.Router();
-
-
 // Database connection
 var mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost/Upnode');
 // mongolabs connection
 // var db = mongoose.connect( 'mongodb://leigh1:leigh1@ds061751.mongolab.com:61751/upnode2015' );
-var uristring;
+
 
 try{
-	uristring = require('./mongolabinfo.js').name;
+	var uristring = require('./mongolabinfo.js').name;
 }
 catch(err){
-	console.log("no connection file so go on to Heroku config var")
-	uristring = process.env.MONGOLAB_URI;   //if Heroku env
+	console.log("no connection file so go on to Heroku config var");
+	var uristring = process.env.MONGOLAB_URI;   //if Heroku env
 }
 
 console.log("uristring is "+ uristring);
