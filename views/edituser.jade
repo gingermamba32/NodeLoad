@@ -13,6 +13,6 @@ block content
 		p
 		input(type="text", placeholder="Organization", size="60", name="postorg", value="#{post[0].postorg}")
 		p
-		textarea.form-control(type="text", name="postcontent", size="90", placeholder="#{post[0].postcontent}" )
+		textarea.form-control(type="text", name="postcontent", size="90" ) #{post[0].postcontent}
 		p
 		button.btn-primary(type="submit") Complete Edit
