@@ -1,18 +1,19 @@
 extends layout
 
 block content
-	h1 Administrative editting
+	h1 Administrative editing
+	p Submitted on: #{post[0].date}
 	form(name="update", method="post", action="/update")
-		input(type="hidden", placeholder="id", name="id", size= 40, value="#{post[0]._id}")
+		input.textstyle(type="hidden", placeholder="id", name="id", size="40", value="#{post[0]._id}")
 		p
-		input(type="text", placeholder="postname", name="postname", value="#{post[0].postname}")
+		input.textstyle(type="text", placeholder="postname", name="postname",size="60", value="#{post[0].postname}")
 		p
-		input(type="text", placeholder="Your Email", size="60", name="postemail", value="#{post[0].postemail}")
+		input.textstyle(type="text", placeholder="Your Email", size="60" name="postemail", value="#{post[0].postemail}")
 		p
-		input(type="text", placeholder="Your Phone Number", size="60", name="postphone", value="#{post[0].postphone}")
+		input.textstyle(type="text", placeholder="Your Phone Number", size="60", name="postphone", value="#{post[0].postphone}")
 		p
-		input(type="text", placeholder="Organization", size="60", name="postorg", value="#{post[0].postorg}")
+		input.textstyle(type="text", placeholder="Organization", size="60", name="postorg", value="#{post[0].postorg}")
 		p
-		textarea.form-control(type="text", name="postcontent", size="90" ) #{post[0].postcontent}
+		textarea.textstyle(type="text", name="postcontent", rows="10" ) #{post[0].postcontent}
 		p
 		button.btn-primary(type="submit") Complete Edit

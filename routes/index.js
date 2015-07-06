@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 // Database connection
 var mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost/Upnode');
@@ -83,11 +84,18 @@ router.get('/userlist', function(req, res) {
 	}
 
 });
-
-// get new user from the database
+//******************************************
+// get form submittal page
 router.get('/newuser', function(req, res){
 	res.render('newuser', {title: 'Welcome new user'})
 })
+
+// New angular send post page
+router.get('/sendpost', function(req,res){
+	res.sendFile(path.join(__dirname, '../views/newpost.html') );
+})
+
+//**************************************************
 
 router.get('/login', function(req, res){
 	res.render('login', {title: 'Login Page'})
@@ -198,12 +206,6 @@ function recent (cookieTime){
 		return true;
 	}
 }
-
-
-
-
-
-
 
 
 module.exports = router;

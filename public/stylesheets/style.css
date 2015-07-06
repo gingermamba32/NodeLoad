@@ -124,4 +124,11 @@ a:active {
     margin-bottom: 20px;
 }
 
+.textstyle{
+  width: 500px;
+}
+#formSub {
+  margin: 0 auto;
+}
+
 
