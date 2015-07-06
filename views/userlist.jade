@@ -16,6 +16,7 @@ block content
 			each post, i in postlist
 				li.mybox 
 					p #{post.postname}
+					p #{post.date}
 					p #{post.postemail}
 					a(href="/singleview/#{post.id}") View
 					a(href="/deleteuser/#{post.id}", onclick="return warningList();") Delete

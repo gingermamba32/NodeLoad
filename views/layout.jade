@@ -13,14 +13,34 @@ html
 				=" "
 				a.menu-btn(href='/about') About
 				=" "
-				a.menu-btn(href='/userlist') Admin Editing
+				a#loggedIn.menu-btn(href='/login') Login
 				=" "
-				a.menu-btn(href='/login') Login
+				a#loggedOut.menu-btn(href='/logout') Logout
 				=" "
-				a.menu-btn(href='/logout') Logout
+				a#admin.menu-btn(href='/userlist') Admin Editing
 				
 		script.
 			//- If else statement used for checking if a cookie is enabled and hide/show the navbar
-			console.log( $.cookie() );
+			console.log( $.cookie().datecookie );
+			if ($.cookie().datecookie != null) {
+				$('#admin').show();
+				}
+			else {
+				$('#admin').hide()
+				};
+
+			if ($.cookie().datecookie != null) {
+				$('#loggedIn').hide();
+				}
+			else {
+				$('#loggedOut').hide();
+				}
+
+
+
+
+
+
+
 
 	block content
