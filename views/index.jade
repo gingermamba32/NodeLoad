@@ -16,25 +16,27 @@ block content
 							li Front end includes user form submit, client side validation, and message acknowledgement.
 							li Back end includes administrator review of submissions and editing.
 
-		.nav-row
+		
 			.submit-content#submit
-				.formdiv
-					form(name="adduser",method="post",action="/adduser")
+					form.proposal-form.br(name="adduser",method="post",action="/adduser")
 						h1 New Project Submittal
-						input(type="text", placeholder="Your Name", size="60", name="postname" required)
+						label(for="postname") Name:
+						input(type="text", size="60", name="postname" required)
 						p
-						input(type="text", placeholder="Your Email", size="60", name="postemail" required)
+						label(for="postemail") Email:
+						input(type="text", size="60", name="postemail" required)
 						p
-						input(type="text", placeholder="Your Phone Number", size="60", name="postphone" required)
+						label(for="postphone") Phone Number:
+						input(type="text", size="60", name="postphone" required)
 						p
-						input(type="text", placeholder="Organization", size="60", name="postorg")
+						label(for="postorg") Organization:
+						input(type="text", size="60", name="postorg")
 						p
-						textarea.form-control(type="text", placeholder="Your Proposal", name="postcontent", rows="8" required)
+						label(for="postcontent") Proposal:
+						textarea.form-control(type="text", name="postcontent", rows="7" required)
 						p
-						button.btn-primary(type="submit") Submit your project
+						button.btn(type="submit") Submit
 
 
-
-		//- about page
-		//- footer
+//- footer
 
