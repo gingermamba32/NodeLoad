@@ -2,36 +2,36 @@ extends layout
 
 block content
 	body
-		
-		//- add sticky nav bar with dropdown for the sumbittal page
 		header.main-header#splash
 			h1.header-text UCLA Health Systems
-			//- img.arrow(src="../public/image/arrow.svg", alt="Down arrow")
+				//- img.arrow(src="../public/image/arrow.svg", alt="Down arrow")
 
-		.about-content#about
-			p Suggestion module is a Node Express demonstration project which exercises some basic functionality, including the following
-					ul
-						li Built on Node, Express, Bootstrap.
-						li Deployed on Heroku Free Tier (expect a 10 second delay on first use)
-						li Module includes front end and administrator functions
-						li Front end includes user form submit, client side validation, and message acknowledgement.
-						li Back end includes administrator review of submissions and editing.
+		.nav-row
+			.about-content#about
+				p Suggestion module is a Node Express demonstration project which exercises some basic functionality, including the following
+						ul
+							li Built on Node, Express, Bootstrap.
+							li Deployed on Heroku Free Tier (expect a 10 second delay on first use)
+							li Module includes front end and administrator functions
+							li Front end includes user form submit, client side validation, and message acknowledgement.
+							li Back end includes administrator review of submissions and editing.
 
-		.submit-content#submit
-			.formdiv
-				form(name="adduser",method="post",action="/adduser")
-					h1 New Project Submittal
-					input(type="text", placeholder="Your Name", size="60", name="postname" required)
-					p
-					input(type="text", placeholder="Your Email", size="60", name="postemail" required)
-					p
-					input(type="text", placeholder="Your Phone Number", size="60", name="postphone" required)
-					p
-					input(type="text", placeholder="Organization", size="60", name="postorg")
-					p
-					textarea.form-control(type="text", placeholder="Your Proposal", name="postcontent", rows="8" required)
-					p
-					button.btn-primary(type="submit") Submit your project
+		.nav-row
+			.submit-content#submit
+				.formdiv
+					form(name="adduser",method="post",action="/adduser")
+						h1 New Project Submittal
+						input(type="text", placeholder="Your Name", size="60", name="postname" required)
+						p
+						input(type="text", placeholder="Your Email", size="60", name="postemail" required)
+						p
+						input(type="text", placeholder="Your Phone Number", size="60", name="postphone" required)
+						p
+						input(type="text", placeholder="Organization", size="60", name="postorg")
+						p
+						textarea.form-control(type="text", placeholder="Your Proposal", name="postcontent", rows="8" required)
+						p
+						button.btn-primary(type="submit") Submit your project
 
 
 

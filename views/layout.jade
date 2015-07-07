@@ -8,35 +8,50 @@ html
 		script(src="/javascripts/jquery.sticky.js")
 
 		body
-			.menu
-				a.menu-btn(href='/#splash') Home
-				=" "
-				a.menu-btn(href='/#submit') Submit Message
-				=" "
-				a.menu-btn(href='/#about') About
-				=" "
-				a#loggedIn.menu-btn(href='/login') Login
-				=" "
-				a#loggedOut.menu-btn(href='/logout') Logout
-				=" "
-				a#admin.menu-btn(href='/userlist') Admin Editing
-				
+			.nav-row
+				header.nav-row.sticky-nav#sticky
+					.grid-left
+						a.desc(href="/#splash") UCLA HEALTH SYSTEMS
+					.grid-right
+						nav
+							a(href='/#about') About
+							=" "
+							a(href='/#submit') Submit Proposal
+							=" "
+							a#loggedIn(href='/login') Login
+							=" "
+							a#loggedOut(href='/logout') Logout
+							=" "
+							a#admin(href='/userlist') Proposal List
+							
 		script.
 			//- If else statement used for checking if a cookie is enabled and hide/show the navbar
-			console.log( $.cookie().datecookie );
-			if ($.cookie().datecookie != null) {
-				$('#admin').show();
-				}
-			else {
-				$('#admin').hide()
-				};
+			$(document).ready(function(){
+				$('#sticky').sticky({
+					  getWidthFrom: '.nav-row',
+					  responsiveWidth: true,
+					  topSpacing: 0
+					});
 
-			if ($.cookie().datecookie != null) {
-				$('#loggedIn').hide();
-				}
-			else {
-				$('#loggedOut').hide();
-				}
+				
+				
+				console.log( $.cookie().datecookie );
+				if ($.cookie().datecookie != null) {
+					$('#admin').show();
+					}
+				else {
+					$('#admin').hide()
+					};
+
+				if ($.cookie().datecookie != null) {
+					$('#loggedIn').hide();
+					}
+				else {
+					$('#loggedOut').hide();
+					}
+			})
+
+
 
 	block content
 
