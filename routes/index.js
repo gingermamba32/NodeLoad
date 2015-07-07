@@ -101,9 +101,6 @@ router.get('/login', function(req, res){
 	res.render('login', {title: 'Login Page'})
 })
 
-router.get('/about', function(req,res){
-	res.render('about');
-})
 
 /* POST to Add User to Mongo */
 router.post('/adduser', function(req, res) {

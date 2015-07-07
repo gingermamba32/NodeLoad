@@ -16,7 +16,7 @@
 body {
   color: #878787;
   margin: 0;
-  padding: 50px;
+  
   font: 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -71,10 +71,6 @@ a:link {
   text-decoration: none;
 }
 
-a:visited {
-  color: lightblue;
-}
-
 a:hover {
   color: rgba(255, 169, 73, .4);
 }
@@ -86,9 +82,10 @@ a:active {
 /* Main Styles --------------------- */
 .main-header {
   padding-top: 110px;
+  float: top;
   height: 850px;
   margin: 0 auto;
-  background: url('/images/bus.jpeg') no-repeat center;
+  background: url('/images/UCLA.jpg') no-repeat center;
   background-size: cover;
 }
 
@@ -127,8 +124,9 @@ a:active {
 .textstyle{
   width: 500px;
 }
-#formSub {
-  margin: 0 auto;
+
+.about-content {
+  height: 1080px;
 }
 
 

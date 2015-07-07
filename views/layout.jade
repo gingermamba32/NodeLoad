@@ -5,15 +5,15 @@ html
 		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
 		script(src="//code.jquery.com/jquery-1.11.3.min.js")
 		script(src="/javascripts/jquery.cookie.js")
+		script(src="/javascripts/jquery.sticky.js")
+
 		body
 			.menu
-				a.menu-btn(href='/') Home
+				a.menu-btn(href='/#splash') Home
 				=" "
-				a.menu-btn(href='/newuser') Submit Message
+				a.menu-btn(href='/#submit') Submit Message
 				=" "
-				a.menu-btn(href='/sendpost') Angular Submit 
-				=" "
-				a.menu-btn(href='/about') About
+				a.menu-btn(href='/#about') About
 				=" "
 				a#loggedIn.menu-btn(href='/login') Login
 				=" "
@@ -38,11 +38,6 @@ html
 				$('#loggedOut').hide();
 				}
 
-
-
-
-
-
-
-
 	block content
+
+
