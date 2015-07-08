@@ -17,26 +17,33 @@ block content
 							li Back end includes administrator review of submissions and editing.
 
 		
-			.submit-content#submit
-					form.proposal-form.br(name="adduser",method="post",action="/adduser")
-						h1 New Project Submittal
-						label(for="postname") Name:
-						input(type="text", size="60", name="postname" required)
-						p
-						label(for="postemail") Email:
-						input(type="text", size="60", name="postemail" required)
-						p
-						label(for="postphone") Phone Number:
-						input(type="text", size="60", name="postphone" required)
-						p
-						label(for="postorg") Organization:
-						input(type="text", size="60", name="postorg")
-						p
-						label(for="postcontent") Proposal:
-						textarea.form-control(type="text", name="postcontent", rows="7" required)
-						p
-						button.btn(type="submit") Submit
+		.submit-content#submit
+				form.proposal-form.br(name="adduser",method="post",action="/adduser")
+					h1 New Project Submittal
+					label(for="postname") Name:
+					input(type="text", size="60", name="postname" required)
+					p
+					label(for="postemail") Email:
+					input(type="text", size="60", name="postemail" required)
+					p
+					label(for="postphone") Phone Number:
+					input(type="text", size="60", name="postphone" required)
+					p
+					label(for="postorg") Organization:
+					input(type="text", size="60", name="postorg")
+					p
+					label(for="postcontent") Proposal:
+					textarea.form-control(type="text", name="postcontent", rows="7" required)
+					p
+					button.btn(type="submit") Submit
 
-
-//- footer
+		footer
+			.nav-row
+				.grid-full
+					p Connect With Us
+					ul.social
+						li
+							a(href="#", class="pink")
+							a(href="#", class="pink")
+							a(href="#", class="pink")
 
