@@ -232,7 +232,7 @@ textarea {
 }
 
 .proposal-form {
-  padding: 20px 24px;
+  padding: 2px 24px 10px;
   background: #D0D0D0;
 }
 
@@ -240,6 +240,9 @@ textarea {
   max-width: 500px;
   margin: 90px auto;
   padding-top: 60px;
+}
+h1.sub{
+  padding-top: -30px;
 }
 
 .btn {
@@ -261,6 +264,7 @@ footer {
   float: left;
   width: 100%;
   background-color: #f4f4f4;
+  padding-top: 5px;
 }
 
 
@@ -293,6 +297,6 @@ footer {
 
 .is-sticky .sticky-nav {
   background-color: #fff;
-  opacity: 0.75;
+  opacity: 0.85;
   z-index: 1000;
 }

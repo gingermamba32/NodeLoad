@@ -1,17 +1,7 @@
 extends layout
 
 block content
-	.formdiv
-		h1 Posts 
-
-		form(name="adduser",method="post",action="/adduser")
-			p Create new Post
-			input(type="text", placeholder="postname", name="postname")
-			p
-			textarea.form-control(type="text", placeholder="postcontent", name="postcontent", cols="35", rows="5")
-			p
-			button(type="submit") submit
-
+	
 		ul
 			each post, i in postlist
 				li.mybox 
