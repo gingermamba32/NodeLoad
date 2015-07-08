@@ -139,13 +139,55 @@ nav a:hover {
 }
 
 .header-text{
-	color: white;
+	  color: white;
   	font-size: 5.625rem; /* 26px/16px */
   	letter-spacing: .065em;
-  	font-weight: 200;
-  	border-bottom: 2px solid;
-  	padding-bottom: 10px;
+  	font-weight: 100;
+  	padding-bottom: 200px;
   	text-align: center;
+}
+
+/*Splash Button*/
+
+.splash {
+  background: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #cccccc);
+  background-image: -moz-linear-gradient(top, #ffffff, #cccccc);
+  background-image: -ms-linear-gradient(top, #ffffff, #cccccc);
+  background-image: -o-linear-gradient(top, #ffffff, #cccccc);
+  background-image: linear-gradient(to bottom, #ffffff, #cccccc);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 35px;
+  padding: 10px 20px 10px 20px;
+  border: solid #000000 1px;
+  text-decoration: none;
+  opacity: 0.55;
+}
+
+.splash:hover {
+  background: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #8f9091);
+  background-image: -moz-linear-gradient(top, #ffffff, #8f9091);
+  background-image: -ms-linear-gradient(top, #ffffff, #8f9091);
+  background-image: -o-linear-gradient(top, #ffffff, #8f9091);
+  background-image: linear-gradient(to bottom, #ffffff, #8f9091);
+  text-decoration: none;
+}
+
+a.splashlink{
+  font-family: Arial;
+  color: #000000;
+  font-weight: 100;
+  font-size: 35px;
+}
+
+a.splashlink:hover{
+  color: black;
+  text-decoration: none;
 }
 
 /*ABOUT INFORMATION*/
@@ -251,6 +293,6 @@ footer {
 
 .is-sticky .sticky-nav {
   background-color: #fff;
-  opacity: 0.4;
+  opacity: 0.75;
   z-index: 1000;
 }
