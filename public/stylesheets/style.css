@@ -285,7 +285,17 @@ footer {
   width: 500px;
 }
 
+/*LOGIN PAGE*/
+.login{
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 200px;
+}
 
+.login-form{
+  padding: 2px 24px 10px;
+  background: #D0D0D0;
+}
 
 
 
