@@ -1,19 +1,26 @@
 extends layout
 
 block content
-	h1 Administrative editing
-	p Submitted on: #{post[0].date}
-	form(name="update", method="post", action="/update")
-		input.textstyle(type="hidden", placeholder="id", name="id", size="40", value="#{post[0]._id}")
-		p
-		input.textstyle(type="text", placeholder="postname", name="postname",size="60", value="#{post[0].postname}")
-		p
-		input.textstyle(type="text", placeholder="Your Email", size="60" name="postemail", value="#{post[0].postemail}")
-		p
-		input.textstyle(type="text", placeholder="Your Phone Number", size="60", name="postphone", value="#{post[0].postphone}")
-		p
-		input.textstyle(type="text", placeholder="Organization", size="60", name="postorg", value="#{post[0].postorg}")
-		p
-		textarea.textstyle(type="text", name="postcontent", rows="10" ) #{post[0].postcontent}
-		p
-		button.btn-primary(type="submit") Complete Edit
+	.edit
+		
+		form.br.edit-form(name="update", method="post", action="/update")
+			h1 Edit Proposal
+			p Submitted on: #{post[0].date}
+			input(type="hidden", placeholder="id", name="id", size="40", value="#{post[0]._id}")
+			p
+			label(for="postname") Name:
+			input(type="text", placeholder="postname", name="postname",size="60", value="#{post[0].postname}")
+			p
+			label(for="postemail") Email:
+			input(type="text", placeholder="Your Email", size="60" name="postemail", value="#{post[0].postemail}")
+			p
+			label(for="postphone") Phone Number:
+			input(type="text", placeholder="Your Phone Number", size="60", name="postphone", value="#{post[0].postphone}")
+			p
+			label(for="postorg") Organization:
+			input(type="text", placeholder="Organization", size="60", name="postorg", value="#{post[0].postorg}")
+			p
+			label(for="postcontent") Proposal:
+			textarea(type="text", name="postcontent", rows="7" ) #{post[0].postcontent}
+			p
+			button.btn(type="submit") Complete Edit

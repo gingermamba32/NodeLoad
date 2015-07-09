@@ -274,18 +274,13 @@ footer {
 }
 
 
-.mybox {
-    width:500px;
-    padding: 10px;
-    background-color: #666666;
-    margin-bottom: 20px;
-}
+
 
 .textstyle{
   width: 500px;
 }
 
-/*LOGIN PAGE*/
+/*LOGIN PAGE*********************/
 .login{
   max-width: 500px;
   margin: 0 auto;
@@ -297,6 +292,30 @@ footer {
   background: #D0D0D0;
 }
 
+/*THANKYOU PAGE*****************/
+
+
+/*EDIT FORM*/
+.edit{
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 70px;
+}
+
+.edit-form{
+  padding: 1px 24px 10px;
+  background: #D0D0D0;
+}
+/*Proposal LIST*/
+.proposals{
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 120px;
+}
+
+.post-list-design{
+
+}
 
 
 
