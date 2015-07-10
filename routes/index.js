@@ -184,6 +184,8 @@ router.post('/verify', function(req, res){
 
 router.get('/logout', function(req, res){
 	res.clearCookie('datecookie');
+	res.clearCookie('username');
+	res.clearCookie('password');
 	res.redirect('/');
 })
 
