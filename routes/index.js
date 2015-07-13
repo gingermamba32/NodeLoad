@@ -183,6 +183,7 @@ router.post('/verify', function(req, res){
 })
 
 router.get('/logout', function(req, res){
+	// entire cookei
 	res.clearCookie('datecookie');
 	res.clearCookie('username');
 	res.clearCookie('password');
