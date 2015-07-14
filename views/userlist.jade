@@ -6,7 +6,7 @@ block content
 			ul
 				each post, i in postlist
 					li.post-list-design.br 
-						h4 #{post.date}
+						h4 #{moment(post.date).format("MMM-Do-YYYY, h:mm a")}
 						h4 #{post.postname}
 						h4 #{post.postemail}
 						button.btn.btn-list
@@ -26,7 +26,7 @@ block content
 					}
 				}
 
-				
+
 					
 
     

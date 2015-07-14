@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+var moment = require('moment');
 // Database connection
 var mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost/Upnode');
@@ -74,7 +75,7 @@ router.get('/userlist', function(req, res) {
 		    Post.find( {}, function(err, docs) {
 		    	docs.reverse();
 		    	console.log(docs + "userlist");
-		    	res.render('userlist', {'postlist': docs})
+		    	res.render('userlist', {'postlist': docs, moment: moment})
 		    })
 	}
 
