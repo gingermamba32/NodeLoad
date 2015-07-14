@@ -34,16 +34,26 @@ html
 					});
 
 			//- hide UCLA HEALTH Systems until sticky is on
-				
+				console.log($.cookie());
 				console.log( $.cookie().datecookie );
-				if ($.cookie().datecookie != null) {
+				console.log(Date.now());
+
+				
+				if ((Date.now() - $.cookie().datecookie) >= 3600000 ) {
+					$.removeCookie('datecookie');
+					}
+
+
+
+
+				if ($.cookie().datecookie != undefined) {
 					$('#admin').show();
 					}
 				else {
 					$('#admin').hide()
 					};
 
-				if ($.cookie().datecookie != null) {
+				if ($.cookie().datecookie != undefined) {
 					$('#loggedIn').hide();
 					}
 				else {

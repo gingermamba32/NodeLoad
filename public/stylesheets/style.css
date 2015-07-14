@@ -308,17 +308,19 @@ footer {
 }
 /*Proposal LIST*/
 .proposals{
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   padding-top: 120px;
 }
 
 .post-list-design{
-
+  background-color: #D0D0D0;
 }
 
 /*Thankyou page*/
+.thankback{
 
+}
 
 
 /*STICKY NAV STYLES**************/
